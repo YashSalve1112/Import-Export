@@ -52,8 +52,7 @@ const Contact = () => {
     setStatus({ type: "", message: "" });
 
     try {
-      const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+      const API_BASE = import.meta.env.VITE_API_BASE_URL;
       const response = await fetch(`${API_BASE}/inquiries`, {
         method: "POST",
         headers: {
