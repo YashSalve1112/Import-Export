@@ -1,19 +1,22 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "description": "Import Export Backend API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Yash Salve",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "mongoose": "^9.4.1",
-    "nodemailer": "^8.0.5"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.2",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
