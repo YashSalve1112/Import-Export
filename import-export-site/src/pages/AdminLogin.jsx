@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { getAdminAuth, setAdminAuth } from "../utils/auth";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 const AdminLogin = () => {
   const navigate = useNavigate();
