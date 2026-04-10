@@ -1,0 +1,24 @@
+SETUP
+
+1) Backend:
+   cd backend
+   npm install
+   npm start
+
+2) Frontend:
+   cd import-export-site
+   npm install
+   npm run dev
+
+3) Requirements:
+   - MongoDB should be running locally on mongodb://127.0.0.1:27017
+   - Frontend API base currently uses http://localhost:5000
+
+Admin Login:
+- URL: /admin-login
+- Default email: admin@bhatiyanijimajisa.com
+- Default password: Admin@12345
+
+How to change admin credentials later:
+- Open backend/server.js
+- Change ADMIN_EMAIL and ADMIN_PASSWORD values
