@@ -15,10 +15,13 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-
-const ADMIN_PASSWORD =process.env.ADMIN_PASSWORD;
-
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN;
+
+if (!MONGO_URI) {
+  console.error("Missing MONGO_URI. Create backend/.env with your MongoDB URI.");
+  process.exit(1);
+}
 
 /* ================= MIDDLEWARE ================= */
 app.use(cors());
@@ -28,9 +31,15 @@ app.use(express.json({ limit: "10mb" }));
 mongoose
   .connect(MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
-  .catch((err) =>
-    console.error("MongoDB connection error:", err.message)
-  );
+  .catch((err) => {
+    console.error("MongoDB connection error:", err.message);
+    if (err.message.toLowerCase().includes("bad auth")) {
+      console.error(
+        "Authentication failed. Verify your MongoDB username/password and connection string."
+      );
+    }
+    process.exit(1);
+  });
 
 /* ================= SCHEMAS ================= */
 const inquirySchema = new mongoose.Schema(
