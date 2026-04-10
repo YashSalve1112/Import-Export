@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { clearAdminAuth, getAdminToken } from "../utils/auth";
 import * as XLSX from 'xlsx';
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 const InquiriesPage = () => {
     const navigate = useNavigate();
