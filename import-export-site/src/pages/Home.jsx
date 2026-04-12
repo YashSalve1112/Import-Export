@@ -21,12 +21,7 @@ const productCards = [
     image:
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
   },
-  {
-    title: "Cosmetic Products",
-    text: "Professional cosmetic product trading support for domestic and international business requirements.",
-    image:
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80",
-  },
+ 
 ];
 
 const services = [
