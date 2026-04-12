@@ -6,6 +6,8 @@ import agricultureImg from "../assets/grain.jpg";
 import metalImg from "../assets/metal.jpg";
 import woodImg from "../assets/wood.jpg";
 import containerImg from "../assets/container.jpg";
+import constructionServiceImg from "../assets/construction.svg";
+import agricultureServiceImg from "../assets/agriculture.svg";
 
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
@@ -149,6 +151,42 @@ const Products = () => {
           </button>
         </div>
       </div>
+      <section className="expanded-services-section">
+        <div className="expanded-services-wrap">
+          <div className="expanded-services-intro">
+            <p className="expanded-services-label">Our Expanded Services</p>
+            <h2 className="expanded-services-heading">
+              Premium solutions for construction and agricultural trading
+            </h2>
+          </div>
+
+          <div className="expanded-services-grid">
+            <article className="service-card">
+              <div className="service-card-icon">
+                <img src={constructionServiceImg} alt="Construction & Infrastructure Development" />
+              </div>
+              <h3 className="service-card-title">
+                Construction & Infrastructure Development
+              </h3>
+              <p className="service-card-text">
+                We provide complete construction and development solutions including residential, commercial, industrial, and infrastructure projects. Our services include building houses, flats, bungalows, offices, shopping malls, roads, bridges, and dams. We also deal in acquisition, leasing, and development of land and properties. Additionally, we offer real estate consulting, advisory, and estate management services.
+              </p>
+            </article>
+
+            <article className="service-card">
+              <div className="service-card-icon">
+                <img src={agricultureServiceImg} alt="Sugar, Oils & Agricultural Products Trading" />
+              </div>
+              <h3 className="service-card-title">
+                Sugar, Oils & Agricultural Products Trading
+              </h3>
+              <p className="service-card-text">
+                We are engaged in trading, distribution, import and export of sugar and related products including white sugar, brown sugar, and raw sugar. We also deal in edible oils such as mustard oil, soybean oil, sunflower oil, and palm oil, along with vanaspati and ghee. Additionally, we trade in agricultural produce including wheat, rice, maize, barley, gram, lentils, moong, urad, and other cereals, available in bulk or branded packaging.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

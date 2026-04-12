@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import containerImg from "../assets/container.jpg";
 
 const productCards = [
   {
@@ -226,7 +227,7 @@ const Home = () => {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=80"
+                    src={containerImg}
                     alt="Global trade"
                     style={{
                       width: "100%",
