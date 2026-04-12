@@ -2,30 +2,61 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
+import agricultureImg from "../assets/grain.jpg";
+import metalImg from "../assets/metal.jpg";
+import woodImg from "../assets/wood.jpg";
+import containerImg from "../assets/container.jpg";
+
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const productImages = [
+  agricultureImg,
+  metalImg,
+  woodImg,
+  containerImg,
+];
 
 const fallbackProducts = [
   {
     _id: "fallback-1",
     title: "Agriculture Products",
-    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80",
+    image: agricultureImg,
     desc: "High-quality agriculture products with reliable export and logistics support.",
     tags: ["Manufacturing", "Logistics", "Import Export"],
   },
   {
     _id: "fallback-2",
     title: "Base Metal Items",
-    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+    image: metalImg,
     desc: "Professional sourcing of base metal items for industrial and commercial sectors.",
     tags: ["Industrial", "Global Supply", "Trade"],
   },
+  {
+    _id: "fallback-3",
+    title: "Wood Materials",
+    image: woodImg,
+    desc: "Premium timber and wood products for construction, interiors, and exports.",
+    tags: ["Wood", "Construction", "Export"],
+  },
+  {
+    _id: "fallback-4",
+    title: "Shipping Containers",
+    image: containerImg,
+    desc: "Reliable container logistics and packaging solutions for global trade.",
+    tags: ["Logistics", "Shipping", "Packaging"],
+  },
+
 ];
 
 const Products = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState(fallbackProducts);
   const [loading, setLoading] = useState(true);
+
+  const getProductImage = (product, index) => {
+    if (product.image) return product.image;
+    return productImages[index] || "https://via.placeholder.com/900x600?text=Product+Image";
+  };
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -34,7 +65,16 @@ const Products = () => {
         if (!res.ok) throw new Error("Failed to load products");
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          setProducts(data);
+          const dataWithImages = data.map((product, index) => ({
+            ...product,
+            image: getProductImage(product, index),
+          }));
+
+          setProducts(
+            dataWithImages.length >= fallbackProducts.length
+              ? dataWithImages
+              : [...dataWithImages, ...fallbackProducts.slice(dataWithImages.length)]
+          );
         }
       } catch (error) {
         console.error(error);
