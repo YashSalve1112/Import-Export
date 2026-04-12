@@ -6,7 +6,7 @@ import agricultureImg from "../assets/grain.jpg";
 import metalImg from "../assets/metal.jpg";
 import woodImg from "../assets/wood.jpg";
 import constructionRealestateImg from "../assets/Construction & Realestate.jpg";
-import agricultureServiceImg from "../assets/agriculture.svg";
+import sugarImg from "../assets/sugar.png";
 
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
@@ -173,7 +173,7 @@ const Products = () => {
 
             <article className="service-card">
               <div className="service-card-icon">
-                <img src={agricultureServiceImg} alt="Sugar, Oils & Agricultural Products Trading" />
+                <img src={sugarImg} alt="Sugar, Oils & Agricultural Products Trading" />
               </div>
               <h3 className="service-card-title">
                 Sugar, Oils & Agricultural Products Trading
