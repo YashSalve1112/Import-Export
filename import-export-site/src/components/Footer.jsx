@@ -66,10 +66,15 @@ const Footer = () => {
 
           <div className="footer-contact">
             <h4>Business Info</h4>
-            <p>Surat, Gujarat, India</p>
+            <p>Avadh Textile Market, Shop No 1031-1032, Opp. New Bombay Market, Surat</p>
             <p>Multi-product Trading Company</p>
             <p>Business inquiries welcome</p>
             <p>Professional domestic & international support</p>
+            <div className="footer-executives">
+              <p><strong>Managing Director:</strong> JAGDISH CHANDRA MEHTA</p>
+              <p><strong>CEO:</strong> GANPAT MEHTA</p>
+              <p><strong>Contact:</strong> +91 8854979799 | +91 8949499799</p>
+            </div>
           </div>
         </div>
 

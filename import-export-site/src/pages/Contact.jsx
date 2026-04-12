@@ -4,7 +4,7 @@ const contactInfo = [
   {
     icon: "location_on",
     title: "Office Location",
-    text: "Surat, Gujarat, India",
+    text: "Avadh Textile Market, Shop No 1031-1032, Opp. New Bombay Market, Surat",
   },
   {
     icon: "public",
@@ -20,6 +20,16 @@ const contactInfo = [
     icon: "support_agent",
     title: "Inquiry Support",
     text: "Professional response for trade and product discussions",
+  },
+  {
+    icon: "call",
+    title: "Managing Director",
+    text: "JAGDISH CHANDRA MEHTA - +91 8854979799",
+  },
+  {
+    icon: "call",
+    title: "CEO",
+    text: "GANPAT MEHTA - +91 8949499799",
   },
 ];
 
@@ -299,29 +309,30 @@ const Contact = () => {
 
       <section className="section" style={{ background: "var(--surface-2)" }}>
         <div className="container">
+          <div style={{ marginBottom: "24px", textAlign:"center" }}>
+            <span className="section-tag">Office Presence</span>
+            <h2 className="section-title" style={{ marginBottom: "12px" }}>
+              Avadh Textile Market, Shop No 1031-1032, Surat
+            </h2>
+          </div>
           <div
-            className="card center-card"
             style={{
-              minHeight: "320px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              padding: "30px",
-              background: "linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%)",
+              borderRadius: "18px",
+              overflow: "hidden",
+              boxShadow: "0 12px 30px rgba(0,0,0,0.1)",
+              height: "450px",
             }}
           >
-            <div>
-              <span className="section-tag">Office Presence</span>
-              <h2 className="section-title" style={{ marginBottom: "12px" }}>
-                Surat, Gujarat, India
-              </h2>
-              <p className="section-text" style={{ margin: "0 auto" }}>
-                You can later connect this section with Google Maps or embed
-                your office location directly for a complete business contact
-                experience.
-              </p>
-            </div>
+            <iframe
+              title="Office Location - Avadh Textile Market, Shop No 1031-1032, Surat"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.4652!2d72.8500!3d21.1934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e5320202ff9%3A0x5dc7a7a21381de3f!2sAvadh%20Textile%20Market!5e0!3m2!1sen!2sin!4v1712606400000"
+              width="100%"
+              height="100%"
+              style={{ border: "none" }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>

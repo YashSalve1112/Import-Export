@@ -5,8 +5,7 @@ import "../index.css";
 import agricultureImg from "../assets/grain.jpg";
 import metalImg from "../assets/metal.jpg";
 import woodImg from "../assets/wood.jpg";
-import containerImg from "../assets/container.jpg";
-import constructionServiceImg from "../assets/construction.svg";
+import constructionRealestateImg from "../assets/Construction & Realestate.jpg";
 import agricultureServiceImg from "../assets/agriculture.svg";
 
 
@@ -15,7 +14,6 @@ const productImages = [
   agricultureImg,
   metalImg,
   woodImg,
-  containerImg,
 ];
 
 const fallbackProducts = [
@@ -42,10 +40,10 @@ const fallbackProducts = [
   },
   {
     _id: "fallback-4",
-    title: "Shipping Containers",
-    image: containerImg,
-    desc: "Reliable container logistics and packaging solutions for global trade.",
-    tags: ["Logistics", "Shipping", "Packaging"],
+    title: "Construction & Real Estate Services",
+    image: constructionRealestateImg,
+    desc: "Comprehensive construction and real estate services for domestic and international clients.",
+    tags: ["Construction", "Real Estate", "Development"],
   },
 
 ];
@@ -163,7 +161,7 @@ const Products = () => {
           <div className="expanded-services-grid">
             <article className="service-card">
               <div className="service-card-icon">
-                <img src={constructionServiceImg} alt="Construction & Infrastructure Development" />
+                <img src={constructionRealestateImg} alt="Construction & Infrastructure Development" />
               </div>
               <h3 className="service-card-title">
                 Construction & Infrastructure Development

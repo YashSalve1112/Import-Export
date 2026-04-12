@@ -497,6 +497,24 @@ ol {
   font-size: 14px;
 }
 
+.footer-executives {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-executives p {
+  margin: 6px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.footer-executives strong {
+  color: var(--secondary-2);
+  font-weight: 600;
+}
+
 .footer-brand,
 .footer-links,
 .footer-contact {
