@@ -1,4 +1,5 @@
-require("dotenv").config(); // ✅ VERY IMPORTANT
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") }); // ✅ VERY IMPORTANT
 
 const express = require("express");
 const cors = require("cors");
@@ -16,10 +17,15 @@ const MONGO_URI = process.env.MONGO_URI;
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
-const ADMIN_TOKEN = process.env.ADMIN_TOKEN;
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "admintoken-example";
 
 if (!MONGO_URI) {
   console.error("Missing MONGO_URI. Create backend/.env with your MongoDB URI.");
+  process.exit(1);
+}
+
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
+  console.error("Missing ADMIN_EMAIL or ADMIN_PASSWORD. Add them to backend/.env.");
   process.exit(1);
 }
 
@@ -108,18 +114,26 @@ app.get("/", (req, res) => {
 });
 
 /* ADMIN LOGIN */
-app.post("/admin/login", (req, res) => {
-  const { email, password } = req.body;
+function handleAdminLogin(req, res) {
+  const { email, password } = req.body || {};
 
-  if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-    return res.json({
-      token: ADMIN_TOKEN,
-      admin: { email: ADMIN_EMAIL },
-    });
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required" });
   }
 
-  res.status(401).json({ message: "Invalid credentials" });
-});
+  if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
+
+  return res.json({
+    message: "Login successful",
+    token: ADMIN_TOKEN,
+    admin: { email: ADMIN_EMAIL },
+  });
+}
+
+app.post("/api/admin/login", handleAdminLogin);
+app.post("/admin/login", handleAdminLogin);
 
 /* CONTACT FORM */
 app.post("/contact", async (req, res) => {
@@ -179,6 +193,4 @@ app.get("/stats", requireAdmin, async (req, res) => {
 /* ================= START ================= */
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`Admin Email: ${ADMIN_EMAIL}`);
-  console.log(`Admin Password: ${ADMIN_PASSWORD}`);
 });

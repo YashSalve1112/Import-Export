@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { getAdminAuth, setAdminAuth } from "../utils/auth";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const existingAuth = getAdminAuth();
   const [form, setForm] = useState({
-    email: "admin@bhatiyanijimajisa.com",
-    password: "Admin@12345",
+    email: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -24,7 +24,7 @@ const AdminLogin = () => {
     setError("");
 
     try {
-      const response = await fetch(`${API_BASE}/admin/login`, {
+      const response = await fetch(`${API_BASE}/api/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -78,7 +78,7 @@ const AdminLogin = () => {
           <p className="small">ADMIN ACCESS</p>
           <h2>Login to Dashboard</h2>
           <p className="admin-muted">
-            Default credentials are prefilled. You can change them later in <code>backend/server.js</code>.
+            Enter your admin email and password below to sign in.
           </p>
 
           <form className="admin-login-form" onSubmit={handleSubmit}>
