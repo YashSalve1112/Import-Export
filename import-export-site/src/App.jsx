@@ -47,7 +47,7 @@ function App() {
 
       {!hideChrome ? (
         <a
-          href="https://wa.me/918758028578"
+          href="https://wa.me/9256321543"
           className="whatsapp-btn"
           target="_blank"
           rel="noopener noreferrer"
